@@ -1,5 +1,6 @@
 :root {
-  --primary-color: #ff6347; /* Tomato */
+  --primary-color: #ff6347;
+  /* Tomato */
   --bg-color: #f9f9f9;
   --text-color: #333;
   --card-bg: #fff;
@@ -20,7 +21,6 @@ body {
   line-height: 1.6;
 }
 
-/* Layout utilities */
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -97,14 +97,33 @@ body {
   font-size: 2rem;
 }
 
+/* NEW: Grid Layout for Recipe Cards */
+.recipes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+/* NEW: Loading and Error messages */
+.status-msg {
+  text-align: center;
+  font-size: 1.2rem;
+  margin: 2rem 0;
+  color: var(--text-color);
+}
+
+.error {
+  color: red;
+}
+
 .card {
   background-color: var(--card-bg);
   border-radius: var(--border-radius);
   box-shadow: var(--shadow);
   overflow: hidden;
-  max-width: 350px;
-  margin: 0 auto;
   transition: transform 0.3s;
+  display: flex;
+  flex-direction: column;
 }
 
 .card:hover {
@@ -119,6 +138,9 @@ body {
 
 .card-content {
   padding: 1.5rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .card-title {
@@ -130,4 +152,5 @@ body {
 .card-desc {
   color: #666;
   font-size: 0.95rem;
+  margin-bottom: 0.5rem;
 }
